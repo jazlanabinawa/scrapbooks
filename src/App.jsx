@@ -183,7 +183,7 @@ function App() {
             </div>
 
             <div style={{ overflow: 'hidden', paddingBottom: '20px' }}>
-              <div className="signature">with love, Jazlan.</div>
+              <div className="signature">With love, Jazlan.</div>
             </div>
           </div>
 
