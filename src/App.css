@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&family=Londrina+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Cherry+Bomb+One&family=Chewy&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background-color: #f4f4f4;
+  font-family: 'Roboto', sans-serif; /* Default jadi Roboto biar Captcha mirip Google */
+  color: #333;
+}
+
+/* Container untuk tampilan Mobile */
+.mobile-container {
+  max-width: 420px;
+  margin: 0 auto;
+  background-color: #fffaf0; /* Warna cream soft */
+  min-height: 100vh;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* === CAPTCHA SCREEN === */
+.captcha-screen {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.captcha-box {
+  width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.captcha-header {
+  background-color: #2b5c8f; /* Biru header */
+  color: white;
+  padding: 20px;
+  text-align: left;
+}
+
+.captcha-header span {
+  font-size: 18px;
+}
+
+.captcha-header h2 {
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.captcha-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 2px;
+  background: #fff;
+}
+
+.captcha-cell {
+  aspect-ratio: 1;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  position: relative;
+}
+
+.captcha-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.captcha-cell.selected {
+  border: 3px solid #2b5c8f;
+  transform: scale(0.95);
+}
+
+.captcha-cell.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 5px; right: 5px;
+  background: #2b5c8f;
+  color: white;
+  border-radius: 50%;
+  width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+}
+
+.captcha-footer {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+}
+
+.captcha-btn {
+  background: #2b5c8f;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* === MAIN CONTENT (SCRAPBOOK) === */
+.main-content {
+  padding: 40px 20px;
+  background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); /* Efek kertas */
+}
+
+/* Scrapbook Collage */
+.collage-container {
+  position: relative;
+  height: 350px;
+  margin-bottom: 20px;
+}
+
+.polaroid {
+  position: absolute;
+  background: white;
+  padding: 10px 10px 20px 10px;
+  box-shadow: 2px 4px 15px rgba(0,0,0,0.1);
+  border: 1px solid #eaeaea;
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Foto Utama (z-index tinggi supaya ada di depan) */
+.p1 { width: 140px; top: 20px; left: 15px; transform: rotate(8deg); z-index: 10; }
+.p2 { width: 190px; top: 10px; right: -10px; transform: rotate(-8deg); z-index: 11; }
+.p3 { width: 150px; top: 160px; left: 70px; transform: rotate(-3deg); z-index: 12; }
+
+.deco {
+  position: absolute;
+  /* tidak ada background, tidak ada padding, murni gambar */
+}
+
+.p7 { 
+  width: 270px; 
+  top: -80px; 
+  left: -30px; 
+  transform: rotate(-5deg); 
+  z-index: 2; /* Di belakang foto utama */
+  opacity: 0.9; 
+}
+/* Posisi Mesin Tik (p4) - Agak besar di belakang kanan */
+.p4 { 
+  width: 300px; 
+  top: -84px; 
+  right: -60px; 
+  transform: rotate(8deg); 
+  z-index: 1; /* Di belakang foto utama */
+  opacity: 0.85; 
+}
+
+/* Posisi Jaring Hati (p5) - Nyempil di kiri atas */
+.p5 { 
+  width: 80px; 
+  top: -10px; 
+  right: 200px; 
+  transform: rotate(-15deg); 
+  z-index: 20;
+  opacity: 0.9; 
+}
+.p8 { 
+  width: 150px; 
+  top: -80px; 
+  right: -60px; 
+  transform: rotate(30deg); 
+  z-index: 20;
+  opacity: 0.9; 
+}
+
+/* Posisi Tulisan "Love you to the moon..." (p6) - Menimpa di bawah */
+.p6 { 
+  width: 160px; 
+  bottom: 10px; 
+  right:50px; 
+  transform: rotate(-5deg); 
+  z-index: 20; /* Z-index tinggi supaya efeknya menimpa foto (pop-out) */
+}
+
+/* Typography & Badges */
+.title-dear {
+  font-family: 'Londrina Outline', cursive; /* Font outline seperti di foto */
+  font-size: 48px;
+  color: #8b0000;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.badge-red { background-color: #8b0000; color: white; padding: 10px 15px; font-weight: bold; font-size: 18px; }
+.badge-blue { background-color: #2b5c8f; color: white; padding: 10px 15px; font-weight: bold; font-size: 18px; }
+
+.handwriting {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+/* Timer Section */
+.timer-pill {
+  background: #8b0000;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.timer-display {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Cherry Bomb One', cursive;
+  font-size: 42px;
+  color: #2b5c8f;
+  font-weight: bold;
+}
+
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #7a1010;
+  margin-top: 5px;
+}
+
+/* Maroon Section */
+.maroon-section {
+  background-color: #7a1010; /* Warna merah gelap sesuai foto */
+  color: white;
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-radius: 12px 12px 0 0;
+  position: relative;
+}
+
+.heart-top {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2b5c8f;
+  color: white;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.maroon-text {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+.photo-grid-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.photo-grid-bottom img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid #2b5c8f;
+}
+
+.signature {
+  background: #2b5c8f;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  float: right;
+  font-size: 14px;
+}
+
+/* Styling untuk Section Scrapbook Baru */
+.scrapbook-section {
+  text-align: center;
+  margin: 40px 0; /* Memberi jarak atas dan bawah */
+}
+
+.happy-month-title {
+  font-family: 'Cherry Bomb One', cursive; /* Font yang lebih bulat dan ceria */
+  font-size: 40px; /* Sedikit diperbesar */
+  color: #2b5c8f;  
+  line-height: 0.9; /* Membuat jarak antara 'HAPPY' dan '5 MONTH' jadi rapat */
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.scrapbook-image {
+  width: 100%; /* Membuat gambar menyesuaikan lebar layar HP */
+  border-radius: 12px; /* Memberi efek lengkung di sudut foto */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sedikit bayangan supaya elegan */
+  display: block;
+}
