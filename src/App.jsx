@@ -10,12 +10,12 @@ function App() {
 
   // Array pura-pura untuk grid foto Captcha (ganti path src dengan foto aslimu)
   const captchaImages = [
-    { id: 1, src: '/ian2.jpeg', correct: true },
-    { id: 2, src: '/f4.jpeg', correct: false },
-    { id: 3, src: '/ian1.jpeg', correct: true },
-    { id: 4, src: '/f2.jpeg', correct: false },
-    { id: 5, src: '/ian3.jpeg', correct: true },
-    { id: 6, src: '/f3.jpeg', correct: false },
+    { id: 1, src: 'ian2.jpeg', correct: true },
+    { id: 2, src: 'f4.jpeg', correct: false },
+    { id: 3, src: 'ian1.jpeg', correct: true },
+    { id: 4, src: 'f2.jpeg', correct: false },
+    { id: 5, src: 'ian3.jpeg', correct: true },
+    { id: 6, src: 'f3.jpeg', correct: false },
   ];
 
   const handleCellClick = (id) => {
@@ -97,26 +97,26 @@ function App() {
           <div className="collage-container">
             {/* --- FOTO BACKGROUND (Tambahan) --- */}
             {/* <img className="deco p4" src="/foto-bg1.png" alt="bg" /> */}
-            <img className="deco p7" src="/foto-bg2.png" alt="bg" />
+            <img className="deco p7" src="foto-bg2.png" alt="bg" />
             {/* Mesin tik ditaruh paling belakang (di atas urutan kodenya) */}
-            <img className="deco p4" src="/mesintik.png" alt="typewriter" />
+            <img className="deco p4" src="mesintik.png" alt="typewriter" />
             
 
             {/* --- FOTO UTAMA --- */}
             <div className="polaroid p1">
-              <img src="/foto1.jpeg" alt="us" />
+              <img src="foto1.jpeg" alt="us" />
             </div>
             <div className="polaroid p2">
-              <img src="/foto2.jpeg" alt="us" />
+              <img src="foto2.jpeg" alt="us" />
             </div>
             <div className="polaroid p3">
-              <img src="/foto3.jpeg" alt="us" />
+              <img src="foto3.jpeg" alt="us" />
             </div>
             {/* Jaring laba-laba */}
-            <img className="deco p5" src="/jaring.png" alt="spiderweb" />
-            <img className="deco p8" src="/jepit.png" alt="spiderweb" />
+            <img className="deco p5" src="jaring.png" alt="spiderweb" />
+            <img className="deco p8" src="jepit.png" alt="spiderweb" />
             {/* Tulisan ditaruh di sini supaya efeknya menimpa ujung foto polaroid */}
-            <img className="deco p6" src="/tulisan.png" alt="love quote" />
+            <img className="deco p6" src="tulisan.png" alt="love quote" />
            
           </div>
 
@@ -138,7 +138,7 @@ function App() {
 
           <div className="scrapbook-section">
             <h2 className="happy-month-title">Happy 5 Month</h2>
-            <img src="/scrapbook.png" alt="Scrapbook Memories" className="scrapbook-image" />
+            <img src="scrapbook.png" alt="Scrapbook Memories" className="scrapbook-image" />
           </div>
 
           {/* Timer Section */}
@@ -178,8 +178,8 @@ function App() {
             </div>
 
             <div className="photo-grid-bottom">
-              <img src="/image.png" alt="memories" />
-              <img src="/imagee.jpeg" alt="memories" />
+              <img src="image.png" alt="memories" />
+              <img src="imagee.jpeg" alt="memories" />
             </div>
 
             <div style={{ overflow: 'hidden', paddingBottom: '20px' }}>
